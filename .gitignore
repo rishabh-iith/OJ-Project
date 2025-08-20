@@ -1,0 +1,49 @@
+# python
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.venv
+venv
+venv-*/
+db.sqlite3
+.env
+.env.*
+
+# node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/patches
+
+# editor/OS
+.DS_Store
+.envrc
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+
+# executor runtime
+executor/runs/
+executor/temp/
+
+keys/codearena_executor-api.pem
+
+.dockerignore
+
+# env files
+*.env
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+CodeArena/codearena_api/.env
+CodeArena/codearena_api/.env.*
+!CodeArena/codearena_api/.env.example
+
