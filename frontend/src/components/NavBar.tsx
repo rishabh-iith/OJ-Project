@@ -1,7 +1,7 @@
 // src/components/NavBar.tsx
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import {
-  Box, HStack, Link, Button, Spacer, Text, useColorModeValue, Icon,
+  Box, HStack, Link, Button, Spacer, Text, Icon,
 } from '@chakra-ui/react';
 import { MdAdd } from 'react-icons/md';
 import useAuth from '../hooks/useAuth';
@@ -15,6 +15,7 @@ export default function NavBar() {
       ? loc.pathname === '/'
       : loc.pathname === to || loc.pathname.startsWith(to + '/');
 
+  // Colors (light mode)
   const linkColor = 'gray.800';
   const linkMuted = 'gray.600';
   const activeBg  = 'blue.50';
@@ -41,9 +42,9 @@ export default function NavBar() {
           letterSpacing="0.5px"
           fontSize="lg"
           color={linkColor}
-          _hover={{ textDecoration: 'none', color: 'blue.600' }}
+          _hover={{ textDecoration: 'none', color: 'blue.700' }}
         >
-          <Text as="span" color="blue.600">CODEFORGE</Text> ACADEMY
+          <Text as="span" color="blue.700">CODEFORGE</Text> ACADEMY
         </Link>
 
         {/* Primary nav */}
@@ -63,7 +64,7 @@ export default function NavBar() {
             borderRadius="md"
             color={isActive(to) ? linkColor : linkMuted}
             bg={isActive(to) ? activeBg : 'transparent'}
-            _hover={{ textDecoration: 'none', color: 'teal.200', bg: activeBg }}
+            _hover={{ textDecoration: 'none', color: 'blue.700', bg: activeBg }}
           >
             {label}
           </Link>
@@ -92,17 +93,23 @@ export default function NavBar() {
 
         {/* Auth actions */}
         {!authed ? (
+          // >>> Dark, always-visible Login link <<<
           <Link
             as={RouterLink}
             to="/login"
-            color="white"
-            _hover={{ color: 'teal.200', textDecoration: 'none' }}
+            px={3}
+            py={1.5}
+            borderRadius="md"
+            fontWeight="semibold"
+            color="blue.700"
+            _hover={{ color: 'blue.900', textDecoration: 'underline', bg: activeBg }}
+            _active={{ color: 'blue.800' }}
           >
             Login
           </Link>
         ) : (
           <HStack spacing={3}>
-            <Box color="whiteAlpha.600" fontSize="sm">
+            <Box color="gray.600" fontSize="sm">
               {user?.username}
             </Box>
             <Button size="sm" onClick={logout} colorScheme="red" variant="solid">
@@ -114,4 +121,3 @@ export default function NavBar() {
     </Box>
   );
 }
-
