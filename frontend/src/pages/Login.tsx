@@ -54,15 +54,42 @@ export default function Login() {
   };
 
   return (
-    <Box p={10} color="white" maxW="400px">
-      <Heading size="lg" mb={6}>Login</Heading>
-      <VStack spacing={3} align="stretch">
-        <Input placeholder="Username" value={u} onChange={(e) => setU(e.target.value)}
-               onKeyDown={(e) => e.key === 'Enter' && submit()} />
-        <Input placeholder="Password" type="password" value={p} onChange={(e) => setP(e.target.value)}
-               onKeyDown={(e) => e.key === 'Enter' && submit()} />
-        <Button onClick={submit} colorScheme="teal" isLoading={loading}>Login</Button>
-        <Link as={RouterLink} to="/register" color="teal.200">Create an account</Link>
+    <Box p={10} bg="white" color="gray.800" maxW="400px" mx="auto" mt={20} borderRadius="lg" boxShadow="lg" border="1px solid" borderColor="gray.200">
+      <Heading size="lg" mb={6} color="blue.600" textAlign="center">Sign In</Heading>
+      <VStack spacing={4} align="stretch">
+        <Input 
+          placeholder="Username" 
+          value={u} 
+          onChange={(e) => setU(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && submit()} 
+          borderColor="gray.300"
+          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
+        />
+        <Input 
+          placeholder="Password" 
+          type="password" 
+          value={p} 
+          onChange={(e) => setP(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && submit()} 
+          borderColor="gray.300"
+          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
+        />
+        <Button 
+          onClick={submit} 
+          colorScheme="blue" 
+          isLoading={loading}
+          bg="blue.600"
+          color="white"
+          _hover={{ bg: "blue.700" }}
+          _active={{ bg: "blue.800" }}
+          size="lg"
+          fontWeight="semibold"
+        >
+          Sign In
+        </Button>
+        <Link as={RouterLink} to="/register" color="blue.600" textAlign="center" _hover={{ color: "blue.800" }}>
+          Create an account
+        </Link>
       </VStack>
     </Box>
   );
