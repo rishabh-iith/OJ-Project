@@ -21,13 +21,43 @@ export default function Register() {
   };
 
   return (
-    <Box p={10} color="white" maxW="400px">
-      <Heading size="lg" mb={6}>Register</Heading>
-      <VStack spacing={3} align="stretch">
-        <Input placeholder="Username" value={u} onChange={e=>setU(e.target.value)}/>
-        <Input placeholder="Email (optional)" value={e} onChange={e=>setE(e.target.value)}/>
-        <Input placeholder="Password" type="password" value={p} onChange={e=>setP(e.target.value)}/>
-        <Button onClick={submit} colorScheme="teal">Create Account</Button>
+    <Box p={10} bg="white" color="gray.800" maxW="400px" mx="auto" mt={20} borderRadius="lg" boxShadow="lg" border="1px solid" borderColor="gray.200">
+      <Heading size="lg" mb={6} color="blue.600" textAlign="center">Join CodeForge Academy</Heading>
+      <VStack spacing={4} align="stretch">
+        <Input 
+          placeholder="Username" 
+          value={u} 
+          onChange={e=>setU(e.target.value)}
+          borderColor="gray.300"
+          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
+        />
+        <Input 
+          placeholder="Email (optional)" 
+          value={e} 
+          onChange={e=>setE(e.target.value)}
+          borderColor="gray.300"
+          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
+        />
+        <Input 
+          placeholder="Password" 
+          type="password" 
+          value={p} 
+          onChange={e=>setP(e.target.value)}
+          borderColor="gray.300"
+          _focus={{ borderColor: "blue.500", boxShadow: "0 0 0 1px blue.500" }}
+        />
+        <Button 
+          onClick={submit} 
+          colorScheme="blue"
+          bg="blue.600"
+          color="white"
+          _hover={{ bg: "blue.700" }}
+          _active={{ bg: "blue.800" }}
+          size="lg"
+          fontWeight="semibold"
+        >
+          Create Account
+        </Button>
       </VStack>
     </Box>
   );
